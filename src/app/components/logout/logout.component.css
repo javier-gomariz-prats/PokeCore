@@ -1,0 +1,24 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.logout-container {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.logout-btn {
+  margin-top: 20px;
+}
+
+.modal-content {
+  background-color: #f8f9fa;
+}
+
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-footer {
+  border-top: none;
+}

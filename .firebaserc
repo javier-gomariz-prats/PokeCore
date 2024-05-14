@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "pokecore-89a25": {
+      "hosting": {
+        "tfg-jgp": [
+          "pokecore-89a25"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "pokecore-89a25"
+  }
+}

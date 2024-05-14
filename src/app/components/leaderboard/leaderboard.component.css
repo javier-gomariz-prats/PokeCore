@@ -1,0 +1,107 @@
+.divpokemon {
+  border: 2px solid black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.bg-light.p-1.rounded{
+}
+.divjajaxd{
+  margin-top: 5px;
+}
+.modal{
+  color: #333333;
+  opacity: 90%;
+}
+pre {
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+.species-container:hover{
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.species-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Start alignment to keep items in order */
+  color: white;
+  background-color: #1a1b1b;
+}
+
+.team-name {
+  flex: 1; /* Takes remaining space, but has a max width */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 40%; /* Limit the max width to prevent pushing icons too far */
+  margin-right: 20px; /* Space between the team name and icons */
+  margin-top: 5px;
+}
+
+.species-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 1 200px; /* Do not grow, allow shrink, initial basis of 200px */
+  text-align: center;
+  margin-right: 20px;
+}
+
+.species-icon {
+  display: inline-block; /* Treat each icon as an inline block */
+  white-space: nowrap; /* Prevent individual icons from wrapping */
+}
+
+.spacer {
+  flex-grow: 1; /* Takes up all remaining space, pushing icons to center */
+}
+
+.favorite-button {
+  margin-right: 10px; /* Space between the star button and team name */
+}
+.favorited {
+  color: gold;
+}
+.btn-close{
+  align-content: end;
+}
+.btn-clipboard{
+  margin-left: 20px;
+}
+.comments {
+  flex: 0 0 150px; /* Fixed width */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 40px;
+  position: relative; /* Position relative to enable absolute positioning inside */
+}
+
+.comments:hover::after {
+  content: attr(title); /* Display the title attribute content */
+  position: absolute;
+  left: 100%; /* Position it to the right of the element */
+  white-space: normal; /* Override the nowrap */
+  display: block; /* Make it a block to show */
+  width: 200px; /* Fixed width */
+  padding: 4px 8px; /* Padding for the tooltip */
+  background: #333; /* Background color */
+  color: #fff; /* Text color */
+  border-radius: 4px; /* Rounded corners */
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.4); /* Shadow for better visibility */
+  z-index: 100; /* Make sure it's on top */
+  cursor: pointer;
+}
+.pkmnwrap{
+  background-color: #333232;
+}
+.toast-wrap{
+  background-color: #cfd2d2;
+  color: #5b5f5f;
+}
+.toast-container{
+  margin-top: 50px;
+  margin-right: 20px;
+}

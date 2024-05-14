@@ -1,0 +1,99 @@
+<div class="container-fluid mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <!-- Form to create/update teams -->
+      <form [formGroup]="formTEAM" (ngSubmit)="onEnviar()">
+        <div class="mb-3">
+          <label class="form-label">Nombre Equipo</label>
+          <input type="text" class="form-control" formControlName="TeamName">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">EQUIPO</label>
+          <textarea class="form-control" formControlName="TEAM" rows="10"></textarea>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Comentarios</label>
+          <input type="text" class="form-control" formControlName="Comments">
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn-enviar btn btn-outline-primary btn-primary" (click)="updateFav()">{{ editMode ? 'Update Team' : 'Enviar' }}</button>
+          <button type="submit" class="btn-borrar btn btn-outline-primary btn-primary" (click)="resetEditForm()">Borrar</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-md-6">
+      <!-- Search and filter setup -->
+      <div class="d-flex justify-content-between align-items-start mb-3">
+        <div class="me-2 flex-grow-1">
+          <input type="text" class="form-control" placeholder="Search by Team Name" [(ngModel)]="searchQuery" (ngModelChange)="filterTeams()">
+        </div>
+        <div>
+          <select class="form-select" [(ngModel)]="filterOption" (ngModelChange)="filterTeams()">
+            <option value="favorites" (click)="updateFav()">Equipos Favoritos</option>
+            <option value="created" (click)="updateFav()">Equipos Creados</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- List of teams based on filter -->
+      <div class="pkmnwrap p-3 rounded">
+        <div *ngFor="let team of filteredTeams" class="p-1 rounded mb-3">
+          <div class="species-container p-3 border rounded d-flex align-items-center" (click)="showModal(team['TeamName'], team['TEAM'])">
+            <!-- Existing code -->
+            <button *ngIf="team['uid'] !== userId" class="btn-fav btn btn-outline-secondary btn-sm favorite-button"
+                    [class.favorited]="isFavorite(team['id'])"
+                    (click)="toggleFavorite(team['id']); $event.stopPropagation();">
+              &#9733;
+            </button>
+            <p class="team-name">{{ team['TeamName'] }}</p>
+            <div [innerHTML]="team['speciesIcons']" class="species-icons"></div>
+            <div class="spacer" style="flex-grow: 1;"></div>
+
+            <button *ngIf="team['uid'] === userId" class="btn btn-warning btn-sm" (click)="editTeam(team); $event.stopPropagation();">
+              <i class="bi bi-pencil-square"></i>
+            </button>
+            <button *ngIf="team['uid'] === userId" class="btn btn-danger btn-sm" (click)="deleteTeam(team['id']); $event.stopPropagation();">
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal to show team data -->
+      <div class="modal" tabindex="-1" role="dialog" [style.display]="selectedTeam ? 'block' : 'none'">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h5 class="modal-title">{{ selectedTeam }}</h5> <!-- Team name in modal -->
+              <button type="button" class="btn-clipboard btn-secondary btn-sm" (click)="clipboard()">
+                <i class="bi bi-clipboard"></i>
+              </button> <!-- Clipboard button -->
+              <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()">
+                <span aria-hidden="true"></span>
+              </button> <!-- Close button -->
+            </div> <!-- modal-header -->
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+              <pre>{{ selectedTeamData }}</pre> <!-- Team data displayed -->
+            </div> <!-- modal-body -->
+          </div> <!-- modal-content -->
+        </div> <!-- modal-dialog -->
+      </div> <!-- modal -->
+    </div> <!-- col-md-6 -->
+  </div> <!-- row -->
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 10000;">
+    <div id="clipboard-toast" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-wrap d-flex">
+        <div class="toast-body">
+          El equipo se ha copiado al portapapeles!!
+        </div> <!-- Toast message -->
+        <button type="button" class="btn-cerrar btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div> <!-- d-flex -->
+    </div> <!-- toast -->
+  </div> <!-- toast-container -->
+</div> <!-- container-fluid -->

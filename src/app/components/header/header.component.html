@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg bg-gradient">
+  <div class="container-fluid " >
+    <a class="navbar-brand  text-center py-lg-0 " href="pokecore/homepage"><img src="assets/images/PokeCore.png" draggable="false" alt="Logo" class="d-inline-block align-text-top"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['pokecore/homepage']">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  routerLinkActive="active" [routerLink]="['pokecore/teams']">Equipos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  routerLinkActive="active" [routerLink]="['pokecore/rankings']">Rankings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  routerLinkActive="active" [routerLink]="['pokecore/faq']">FAQ</a>
+        </li>
+      </ul>
+    </div>
+    <div class="allaudio">
+      <div class="audio-menu">
+        <ul class="list-unstyled">
+          <li class="nav-item dropdown XDdrop">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Música
+            </a>
+            <ul class=" dropmusic dropdown-menu ">
+              <li><a class="btn dropdown-item" (click)="playMusic('assets/audio/Pokémon-Opening1.mp3')">Opening Pokemon</a></li>
+              <li><a class="btn dropdown-item" (click)="playMusic('assets/audio/Driftveil-City.mp3')">Driftveil City</a></li>
+              <li><a class="btn dropdown-item" (click)="playMusic('assets/audio/cinthyabossbattle.mp3')">Champion Cynthia</a></li>
+              <li><a class="btn dropdown-item" (click)="playMusic('assets/audio/route1.mp3')">Ruta 1 Original</a></li>
+              <li><a class="btn dropdown-item" (click)="playMusic('assets/audio/elite4b&w.mp3')">Elite 4 B&W</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <button class="btn btn-primary" #muteButton (click)="toggleMute()" aria-label="Toggle Mute">
+        <i class="bi" [ngClass]="isMuted ? 'bi-volume-mute' : 'bi-volume-up'"></i>
+      </button>
+      <audio [volume]="0.1" loop #audioPlayer *ngIf="true"></audio>
+    </div>
+    <div class="login-icon">
+      <ul class="list-unstyled">
+        <li class="nav-item dropdown" >
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="assets/images/poketrainerlogin.png" draggable="false" height="50px" width="50px" alt="logo">
+          </a>
+          <ul class="dropdown-menu" *ngIf="!(authService.isLoggedIn)">
+            <li><a class="dropdown-item" routerLink="/pokecore/login">Iniciar sesión</a></li>
+            <li><a class="dropdown-item" routerLink="/pokecore/register">Registrarse</a></li>
+          </ul>
+          <ul class="dropdown-menu" *ngIf="(authService.isLoggedIn)">
+            <li><a class="dropdown-item" routerLink="/pokecore/logout">Cerrar Sesión</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

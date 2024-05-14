@@ -1,0 +1,63 @@
+<div class="container-fluid mt-5">
+  <a class="ShwdownURL" href="https://play.pokemonshowdown.com/teambuilder" target="_blank" rel="noopener noreferrer">
+    Showdown TeamBuilder
+  </a>
+
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <div class="pkmnwrap p-3 rounded">
+        <div *ngFor="let entry of speciesAndTeams$ | async" class="mb-3">
+          <div class="species-container p-3 border rounded d-flex align-items-center" (click)="showModal(entry.teamName, entry.teamData)">
+            <!-- Favorite Button with conditional class updated to use docId -->
+            <button class="btn-fav btn btn-outline-secondary btn-sm favorite-button"
+                    [class.favorited]="isFavorite(entry.docId)"
+                    (click)="toggleFavorite(entry.docId); $event.stopPropagation();">
+              &#9733; <!-- Star character -->
+            </button>
+            <p class="team-name">{{ entry.teamName }}</p> <!-- Team name -->
+            <div [innerHTML]="entry.speciesIcons" class="species-icons"></div> <!-- Species icons -->
+            <div class="spacer" style="flex-grow: 1;"></div> <!-- Spacer pushing remaining elements -->
+
+            <!-- Comments at the end -->
+            <p class="comments" title="{{ entry.comments }}">{{ entry.comments }}</p>
+          </div> <!-- species-container -->
+        </div> <!-- *ngFor -->
+
+        <!-- Modal to show team data -->
+        <div class="modal" tabindex="-1" role="dialog" [style.display]="selectedTeam ? 'block' : 'none'">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h5 class="modal-title">{{ selectedTeam }}</h5> <!-- Team name in modal -->
+                <button type="button" class="btn-clipboard btn-secondary btn-sm" (click)="copyToClipboard()">
+                  <i class="bi bi-clipboard"></i>
+                </button> <!-- Clipboard button -->
+                <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()">
+                  <span aria-hidden="true"></span>
+                </button> <!-- Close button -->
+              </div> <!-- modal-header -->
+
+              <!-- Modal Body -->
+              <div class="modal-body">
+                <pre>{{ selectedTeamData }}</pre> <!-- Team data displayed -->
+              </div> <!-- modal-body -->
+            </div> <!-- modal-content -->
+          </div> <!-- modal-dialog -->
+        </div> <!-- modal -->
+      </div> <!-- bg-dark -->
+    </div> <!-- col-12 -->
+  </div> <!-- row -->
+</div> <!-- container-fluid -->
+
+<!-- Toast Notification Container -->
+<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 10000;">
+  <div id="clipboard-toast" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-wrap d-flex">
+      <div class="toast-body">
+        El equipo se ha copiado al portapapeles!!
+      </div> <!-- Toast message -->
+      <button type="button" class="btn-cerrar btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div> <!-- d-flex -->
+  </div> <!-- toast -->
+</div> <!-- toast-container -->

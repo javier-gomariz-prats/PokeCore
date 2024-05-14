@@ -1,0 +1,118 @@
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+
+.navbar{
+  background-color: #333232;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.navbar-brand.text-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Pokemon Solid', sans-serif; /* Pokemon font */
+  color: #ffcb05; /* Red color */
+  text-shadow: 2px 2px #c7a008; /* Yellow shadow */
+  border-radius: 5px; /* Rounded corners */
+  padding: 5px 10px; /* Padding */
+  -webkit-text-stroke: 2px #3c5aa6; /* Webkit browsers */
+}
+.d-inline-block.align-text-top{
+  margin-left: 0px;
+  margin-top: 25px;
+  width: 30px;
+  height: 30px;
+}
+a.navbar-brand{
+  margin-bottom: 20px;
+  font-size: 30px;
+  margin-left: 20px;
+}
+.li {
+  list-style-type: none;
+}
+.dropdown-menu {
+  border: 2px solid black; /* Black border for dropdown menu */
+  border-radius: 5px; /* Rounded corners */
+}
+.login-icon {
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: 90px;
+  /*mix-blend-mode: color;*/
+}
+.dropdown-item {
+  color: #ffcc00; /* Yellow color for dropdown items */
+  background-color: #333; /* Dark background color for dropdown items */
+}
+.dropdown-item:hover {
+  background-color: #444; /* Darker background color on hover */
+}
+.dropdown-menu.show {
+  color: #ffcc00; /* Yellow color for dropdown items */
+  background-color: #333; /* Dark background color for dropdown items */
+}
+.d-inline-block.align-text-top{
+  margin-left: 15px;
+}
+.text{
+  border: 2px solid black;
+}
+.active {
+  color: black;
+  text-decoration: underline;
+}
+.navbar-brand img {
+  width: 180px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+.navbar-brand img:hover {
+  width: 180px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  animation: shake 3s;
+  /* When the animation is finished, start again */
+  animation-iteration-count: infinite;
+}
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+.nav-link{
+  color: #f8f9fa;
+}
+.container-fluid{
+  height: 50px;
+}
+.audio-control {
+  cursor: pointer;
+  font-size: 24px;
+}
+.allaudio {
+  display: flex;
+  align-items: center; /* Aligns items vertically in the center */
+  justify-content: start; /* Aligns items horizontally at the start */
+  gap: 10px; /* Adds some space between the dropdown and the button */
+  margin-right: 30px;
+}
+.audio-menu {
+  flex: 1; /* Allows the dropdown to fill available space but not more */
+}
+.allaudio {
+  position: relative;
+}
+
+.XDdrop .dropdown-menu {
+  margin-left: auto;
+  position: absolute;
+  right: 0; /* Aligns the dropdown to the far right of the .allaudio div */
+  top: 100%; /* Positions the dropdown right below the toggle link */
+}

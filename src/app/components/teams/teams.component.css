@@ -1,0 +1,88 @@
+.TEAM.form-control{
+  background: #222527;
+  color: #f8f9fa;
+}
+.species-container:hover{
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.species-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Start alignment to keep items in order */
+  color: white;
+  background-color: #1a1b1b;
+}
+.btn-fav.favorited {
+  color: gold;
+}
+
+.team-name {
+  margin-left: 10px;
+  flex-grow: 1;
+}
+
+.species-icons {
+  margin-left: auto;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+.modal{
+  color: #333333;
+  opacity: 90%;
+}
+.bi-trash{
+  color: #f8f9fa;
+}
+.bi-pencil-square{
+  color: #f8f9fa;
+}
+.btn-warning{
+  margin-right: 5px;
+}
+.team-name{
+  padding-top: 14px;
+}
+.btn-borrar{
+  margin-left: 5px;
+  align-content: center;
+  background-color: #6b6f6e;
+  color: white;
+  border-color: #868a89;
+}
+.btn-borrar:hover{
+  background-color: #5b5f5f;
+  border-color: #868a89;
+}
+
+.btn-borrar:active{
+  background-color: #4d5151;
+}
+
+.btn-enviar{
+  background-color: #6b6f6e;
+  color: white;
+  border-color: #868a89;
+}
+
+.btn-enviar:hover{
+  background-color: #5b5f5f;
+  border-color: #868a89;
+}
+.btn-enviar:active{
+  background-color: #4d5151;
+}
+
+.pkmnwrap{
+  background-color: #333232;
+}
+.toast-wrap{
+  background-color: #cfd2d2;
+  color: #5b5f5f;
+}
+.toast-container{
+  margin-top: 50px;
+  margin-right: 20px;
+}
