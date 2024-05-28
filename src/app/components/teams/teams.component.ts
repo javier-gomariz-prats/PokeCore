@@ -35,9 +35,9 @@ export class TeamsComponent implements OnInit {
     private sanitizer: DomSanitizer
   ) {
     this.formTEAM = this.fb.group({
-      TeamName: ['', [Validators.required, Validators.maxLength(20)]],
+      TeamName: ['', [Validators.required, Validators.maxLength(35)]],
       TEAM: ['', Validators.required],
-      Comments: ['']
+      Comments: ['', [Validators.required, Validators.maxLength(20)]]
     });
   }
 

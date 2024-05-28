@@ -28,15 +28,17 @@ export class LeaderboardComponent implements OnInit {
     this.speciesAndTeams$ = this.firestoreServices.getAllDocumentIds('TeamData').pipe(
       switchMap(documentIds => combineLatest(documentIds.map(docId =>
         combineLatest([
+          //saca todas los iconos y datos de cada Doc
           this.firestoreServices.getSpeciesFromDoc(docId),
           this.firestoreServices.getTeamFromDoc(docId),
           this.firestoreServices.getTeamNameFromDoc(docId),
           this.firestoreServices.getCommentsFromDoc(docId) // Include comments fetching
         ]).pipe(
           map(([speciesArray, teamData, teamName, comments]) => ({
-            docId, // Include the document ID
+            docId,
             speciesIcons: this.sanitizer.bypassSecurityTrustHtml(
               speciesArray.map(speciesName =>
+                //Crea los iconos por cada especie
                 `<span class="species-icon" style="${Icons.getPokemon(speciesName).style}"></span>`
               ).join('')
             ),
@@ -48,7 +50,7 @@ export class LeaderboardComponent implements OnInit {
       ))
     );
 
-    // Fetch current user ID and their favorites
+    // Hace fetch al usuario para conseguir su ID
     this.firestoreServices.getCurrentUserId().pipe(
       tap(userId => {
         this.userId = userId;
@@ -70,6 +72,8 @@ export class LeaderboardComponent implements OnInit {
     this.selectedTeam = null;
     this.selectedTeamData = null;
   }
+
+  //Funcion copiar al portapapeles
   copyToClipboard(): void {
     if (this.selectedTeam && this.selectedTeamData) {
       const formattedData = `${this.selectedTeamData}`;
@@ -79,11 +83,11 @@ export class LeaderboardComponent implements OnInit {
           const toast = new bootstrap.Toast(toastEl);
           toast.show();
           setTimeout(() => {
-            toast.hide();  // Hide the toast
+            toast.hide();
           }, 3000);
         }
       }, err => {
-        console.error('Could not copy text: ', err);
+        console.error('No se ha podido copiar: ', err);
       });
     }
   }

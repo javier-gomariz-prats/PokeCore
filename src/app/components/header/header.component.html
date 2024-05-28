@@ -13,7 +13,7 @@
           <a class="nav-link"  routerLinkActive="active" [routerLink]="['pokecore/teams']">Equipos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  routerLinkActive="active" [routerLink]="['pokecore/rankings']">Rankings</a>
+          <a class="nav-link"  routerLinkActive="active" [routerLink]="['pokecore/rankings']">Comunidad</a>
         </li>
         <li class="nav-item">
           <a class="nav-link"  routerLinkActive="active" [routerLink]="['pokecore/faq']">FAQ</a>
@@ -24,7 +24,7 @@
       <div class="audio-menu">
         <ul class="list-unstyled">
           <li class="nav-item dropdown XDdrop">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="musicatext nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Música
             </a>
             <ul class=" dropmusic dropdown-menu ">
@@ -37,7 +37,7 @@
           </li>
         </ul>
       </div>
-      <button class="btn btn-primary" #muteButton (click)="toggleMute()" aria-label="Toggle Mute">
+      <button class="btnmute btn btn-primary" #muteButton (click)="toggleMute()" aria-label="Toggle Mute">
         <i class="bi" [ngClass]="isMuted ? 'bi-volume-mute' : 'bi-volume-up'"></i>
       </button>
       <audio [volume]="0.1" loop #audioPlayer *ngIf="true"></audio>
@@ -46,7 +46,8 @@
       <ul class="list-unstyled">
         <li class="nav-item dropdown" >
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="assets/images/poketrainerlogin.png" draggable="false" height="50px" width="50px" alt="logo">
+            <img [src]="authService.isLoggedIn ? 'assets/images/poketrainerlogin.png' : 'assets/images/poketrainerloginOFF.png'"
+                 draggable="false" height="50px" width="50px" alt="User Icon">
           </a>
           <ul class="dropdown-menu" *ngIf="!(authService.isLoggedIn)">
             <li><a class="dropdown-item" routerLink="/pokecore/login">Iniciar sesión</a></li>

@@ -25,18 +25,18 @@ pre {
 .species-container {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Start alignment to keep items in order */
+  justify-content: flex-start;
   color: white;
   background-color: #1a1b1b;
 }
 
 .team-name {
-  flex: 1; /* Takes remaining space, but has a max width */
+  flex: 1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 40%; /* Limit the max width to prevent pushing icons too far */
-  margin-right: 20px; /* Space between the team name and icons */
+  max-width: 40%;
+  margin-right: 20px;
   margin-top: 5px;
 }
 
@@ -44,22 +44,22 @@ pre {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 0 1 200px; /* Do not grow, allow shrink, initial basis of 200px */
+  flex: 0 1 200px;
   text-align: center;
   margin-right: 20px;
 }
 
 .species-icon {
-  display: inline-block; /* Treat each icon as an inline block */
-  white-space: nowrap; /* Prevent individual icons from wrapping */
+  display: inline-block; /* Cada icono se vuelve un bloque individual */
+  white-space: nowrap; /* Previene que se solapen */
 }
 
 .spacer {
-  flex-grow: 1; /* Takes up all remaining space, pushing icons to center */
+  flex-grow: 1;
 }
 
 .favorite-button {
-  margin-right: 10px; /* Space between the star button and team name */
+  margin-right: 10px;
 }
 .favorited {
   color: gold;
@@ -71,27 +71,26 @@ pre {
   margin-left: 20px;
 }
 .comments {
-  flex: 0 0 150px; /* Fixed width */
+  flex: 0 0 250px; /* Arregla el width */
   overflow: hidden;
-  text-overflow: ellipsis;
   white-space: nowrap;
   margin-right: 40px;
-  position: relative; /* Position relative to enable absolute positioning inside */
+  position: relative;
 }
 
 .comments:hover::after {
-  content: attr(title); /* Display the title attribute content */
+  content: attr(title);
   position: absolute;
-  left: 100%; /* Position it to the right of the element */
-  white-space: normal; /* Override the nowrap */
-  display: block; /* Make it a block to show */
-  width: 200px; /* Fixed width */
-  padding: 4px 8px; /* Padding for the tooltip */
-  background: #333; /* Background color */
-  color: #fff; /* Text color */
-  border-radius: 4px; /* Rounded corners */
-  box-shadow: 1px 1px 5px rgba(0,0,0,0.4); /* Shadow for better visibility */
-  z-index: 100; /* Make sure it's on top */
+  left: 100%;
+  white-space: normal;
+  display: block;
+  width: 200px;
+  padding: 4px 8px;
+  background: #333;
+  color: #fff;
+  border-radius: 4px;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+  z-index: 100;
   cursor: pointer;
 }
 .pkmnwrap{
@@ -104,4 +103,9 @@ pre {
 .toast-container{
   margin-top: 50px;
   margin-right: 20px;
+}
+.comments {
+  white-space: nowrap;
+  max-width: 300px;
+  text-align: center;
 }

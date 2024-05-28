@@ -1,5 +1,5 @@
 import {SafeHtml} from "@angular/platform-browser";
-
+//para sacar los doc ID y datos
 export interface TeamSpeciesData {
   docId: string;
   speciesIcons: SafeHtml;

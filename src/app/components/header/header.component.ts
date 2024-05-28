@@ -1,7 +1,6 @@
 import {ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { AuthService } from "../../services/auth.service";
 import { FirestoreServicesService } from "../../services/firestore-services.service";
-import { take } from "rxjs";
 
 @Component({
   selector: 'app-header',
@@ -23,6 +22,8 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  //Inicia la música
   playMusic(musicFile: string): void {
     this.audioPlayer.nativeElement.src = musicFile;
     this.audioPlayer.nativeElement.play();
@@ -32,8 +33,6 @@ export class HeaderComponent implements OnInit {
   toggleMute(): void {
     this.isMuted = !this.isMuted; // Se cambia el mute
     this.audioPlayer.nativeElement.muted = this.isMuted;
-
-    console.log('New mute state after toggle:', this.isMuted);
   }
 
 }

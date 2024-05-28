@@ -29,6 +29,7 @@
 }
 .text-log{
   font-family: 'Pokemon Solid', sans-serif;
+  color: #232323;
 
 }
 .text-log:hover{
@@ -61,4 +62,21 @@
 }
 .text-info:hover{
   color: #3c5aa6 !important;
+}
+.divlog{
+  color: white;
+  background-color: #494848;
+  background-image: var(--bs-gradient);
+}
+.card-body{
+  background-color: #494848;
+}
+.div-image {
+  background-color: white;
+}
+.password{
+  margin-top: 40px;
+}
+.email{
+  margin-top: 40px;
 }

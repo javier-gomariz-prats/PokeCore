@@ -1,3 +1,5 @@
+
+//Interfaz de JSON que se sube guardar equipo
 export interface TeamData {
   Comments: string;
   TEAM: string;

@@ -29,6 +29,7 @@
 }
 .text-log{
   font-family: 'Pokemon Solid', sans-serif;
+  color: #232323;
 
 }
 .text-log:hover{
@@ -64,4 +65,16 @@
 }
 .formdiv{
   margin-top: 40px;
+}
+.divlog{
+  color: white;
+  background-color: #494848;
+  background-image: var(--bs-gradient);
+}
+
+.card-body{
+  background-color: #494848;
+}
+.div-image{
+  background-color: white;
 }

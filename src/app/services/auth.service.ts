@@ -14,7 +14,7 @@ export class AuthService {
   constructor(
     private auth: Auth,
     private afAuth: AngularFireAuth,
-    private afs: AngularFirestore,  // Include AngularFirestore for Firestore operations
+    private afs: AngularFirestore,
     private router: Router,
 
   ) {
@@ -23,15 +23,16 @@ export class AuthService {
     });
   }
 
-  // Function to Register
+  // Funcion para hacer Register
   async register({email, password}: any) {
     const result = await createUserWithEmailAndPassword(this.auth, email, password);
     return await this.afs.collection('Userdata').doc(result.user.uid).set({
       email: email,
-      favorites: [] // Initialize favorites array
+      favorites: [] // Inicia el array de favoritos para poder actualizarlo con los pokemons fav
     }, {merge: true});
   }
 
+  //funcion login
   async login({email, password}: any) {
     await signInWithEmailAndPassword(this.auth, email, password);
     this.router.events.subscribe(event => {
@@ -41,6 +42,7 @@ export class AuthService {
     });
   }
 
+  //funcion logout
   async logout() {
     await signOut(this.auth);
     this.router.events.subscribe(event => {

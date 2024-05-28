@@ -16,6 +16,7 @@ export class LogoutComponent {
   ngOnInit(): void {
   }
 
+  //hace la funcion de logout
   onClick() {
     this.authService.logout()
       .then(() => {

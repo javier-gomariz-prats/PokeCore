@@ -1,19 +1,48 @@
 <div class="container-fluid mt-5">
+
   <div class="row justify-content-center">
-    <div class="col-md-6">
+    <div class="col-md-6 position-relative" >
+      <a class="ShwdownURL" href="https://play.pokemonshowdown.com/teambuilder" target="_blank" rel="noopener noreferrer">
+        Showdown TeamBuilder
+      </a>
       <!-- Form to create/update teams -->
       <form [formGroup]="formTEAM" (ngSubmit)="onEnviar()">
+
         <div class="mb-3">
           <label class="form-label">Nombre Equipo</label>
-          <input type="text" class="form-control" formControlName="TeamName">
+          <input type="text" class="form-control" placeholder="Introduce un nombre para el equipo" formControlName="TeamName">
+          <div *ngIf="formTEAM.get('TeamName')?.touched && formTEAM.get('TeamName')?.hasError('required')" class="text-danger">
+            El nombre del equipo no puede estar vacío.
+          </div>
+          <div *ngIf="formTEAM.get('TeamName')?.touched && formTEAM.get('TeamName')?.hasError('maxlength')" class="text-danger">
+            El nombre del equipo no pueden tener mas de 35 carácteres.
+          </div>
         </div>
         <div class="mb-3">
           <label class="form-label">EQUIPO</label>
-          <textarea class="form-control" formControlName="TEAM" rows="10"></textarea>
+          <textarea class="form-control" formControlName="TEAM" rows="10" placeholder="Ejemplo:
+  Dragonite @ Loaded Dice
+  Ability: Inner Focus
+  Tera Type: Steel
+  EVs: 36 HP / 252 Atk / 4 Def / 12 SpD / 204 Spe
+  Adamant Nature
+  - Iron Head
+  - Extreme Speed
+  - Scale Shot
+  - Protect"></textarea>
+          <div *ngIf="formTEAM.get('TEAM')?.touched && formTEAM.get('TEAM')?.hasError('required')" class="text-danger">
+            El equipo no puede estar vacío.
+          </div>
         </div>
         <div class="mb-3">
           <label class="form-label">Comentarios</label>
-          <input type="text" class="form-control" formControlName="Comments">
+          <input type="text" class="form-control" formControlName="Comments" placeholder="Introduce un comentario para el equipo">
+          <div *ngIf="formTEAM.get('Comments')?.touched && formTEAM.get('Comments')?.hasError('required')" class="text-danger">
+            Introduce algún comentario sobre el equipo.
+          </div>
+          <div *ngIf="formTEAM.get('Comments')?.touched && formTEAM.get('Comments')?.hasError('maxlength')" class="text-danger">
+            Los comentarios no pueden tener mas de 20 carácteres.
+          </div>
         </div>
         <div class="text-center">
           <button type="submit" class="btn-enviar btn btn-outline-primary btn-primary" (click)="updateFav()">{{ editMode ? 'Update Team' : 'Enviar' }}</button>
@@ -26,7 +55,7 @@
       <!-- Search and filter setup -->
       <div class="d-flex justify-content-between align-items-start mb-3">
         <div class="me-2 flex-grow-1">
-          <input type="text" class="form-control" placeholder="Search by Team Name" [(ngModel)]="searchQuery" (ngModelChange)="filterTeams()">
+          <input type="text" class="form-control" placeholder="Busca por nombre" [(ngModel)]="searchQuery" (ngModelChange)="filterTeams()">
         </div>
         <div>
           <select class="form-select" [(ngModel)]="filterOption" (ngModelChange)="filterTeams()">

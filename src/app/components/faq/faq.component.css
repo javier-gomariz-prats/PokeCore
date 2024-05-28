@@ -1,0 +1,63 @@
+.faq-header {
+  margin-top: 20px;
+  margin-bottom: 35px;
+  text-align: center;
+  font-size: 70px;
+  font-family: 'Pokemon Solid', sans-serif;
+}
+
+.accordion-item {
+  border: none;
+  border-bottom: 1px solid #000000;
+  border-radius: 0;
+}
+
+.accordion-button {
+  color: white;
+  background-color: #6b6f6e;
+  box-shadow: none;
+}
+.accordion-button:hover {
+  color: white;
+  background-color: #3b3b3b;
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #8db4ea;
+  background-color: #6b6f6e;
+  box-shadow: none;
+}
+
+.accordion-button::after {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 7px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  transition: transform .2s ease-in-out;
+  transform: rotate(-90deg);
+}
+
+.accordion-button.collapsed::after {
+  transform: rotate(0deg);
+}
+
+.container{
+  margin-top: 50px;
+
+}
+.accordion-body{
+  background-color: #cfd2d2;
+}
+.accordion{
+  color: #1a1b1b;
+}
+.button.accordion-button::after{
+  color: white;
+}
